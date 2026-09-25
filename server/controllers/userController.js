@@ -20,14 +20,22 @@ const clerkWebhooks = async (req, res) => {
         // Verify payload signature
         // Note: Use raw body buffer/string if available (e.g., req.rawBody or req.body)
         const payload = typeof req.body === 'string' || Buffer.isBuffer(req.body)
-            ? req.body 
+            ? req.body
             : JSON.stringify(req.body)
 
-        const evt = whook.verify(payload, {
+        // IMPORTANT: whook.verify() in this version of the svix package does NOT
+        // return the parsed event — its return type is `undefined`. It only
+        // validates the signature and throws if verification fails. So we must
+        // parse the event ourselves after verify() succeeds (doesn't throw).
+        whook.verify(payload, {
             "svix-id": svix_id,
             "svix-timestamp": svix_timestamp,
             "svix-signature": svix_signature
         })
+
+        // Signature is valid at this point (verify() would have thrown otherwise).
+        // Parse the verified payload to get the event data ourselves.
+        const evt = JSON.parse(payload)
 
         // Extract verified event data and type
         const { data, type } = evt
