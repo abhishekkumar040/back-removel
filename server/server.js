@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import connectDB from './config/mongodb.js' // <-- Added the 's' here
 import userRouter from './routes/userRoutes.js'
+import imageRouter from './routes/imageRoutes.js'
 
 // App Config
 const PORT = process.env.PORT || 4000
@@ -16,6 +17,7 @@ await connectDB()
 app.use('/api/user/webhooks', express.raw({ type: 'application/json' }))
 app.use(express.json())
 app.use(cors())
+app.use('/api/image',imageRouter)
 
 // API Routes
 app.get('/',(req,res)=> res.send("API Working"))

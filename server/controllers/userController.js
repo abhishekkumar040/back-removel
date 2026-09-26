@@ -18,21 +18,19 @@ const clerkWebhooks = async (req, res) => {
         }
 
         // Verify payload signature
-        // Note: Use raw body buffer/string if available (e.g., req.rawBody or req.body)
         const payload = typeof req.body === 'string' || Buffer.isBuffer(req.body)
-            ? req.body 
+            ? req.body
             : JSON.stringify(req.body)
 
-        const evt = whook.verify(payload, {
+        whook.verify(payload, {
             "svix-id": svix_id,
             "svix-timestamp": svix_timestamp,
             "svix-signature": svix_signature
         })
 
-        // Extract verified event data and type
+        const evt = JSON.parse(payload)
         const { data, type } = evt
 
-        // Handle specific event types
         switch (type) {
             case 'user.created': {
                 const userData = {
@@ -74,4 +72,21 @@ const clerkWebhooks = async (req, res) => {
     }
 }
 
-export { clerkWebhooks }
+// API Controller function to get user available credits data
+const userCredits = async (req, res) => {
+    try {
+        const { clerkId } = req
+        const userData = await userModel.findOne({ clerkId })
+
+        if (!userData) {
+            return res.json({ success: false, message: 'User not found for clerkId: ' + clerkId })
+        }
+
+        res.json({ success: true, credits: userData.creditBalance })
+    } catch (error) {
+        console.log(error.message)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export { clerkWebhooks, userCredits }

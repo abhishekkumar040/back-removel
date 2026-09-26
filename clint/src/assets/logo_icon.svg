@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" role="img" aria-label="Background removal icon">
+  <defs>
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C51BFF"/>
+      <stop offset="48%" stop-color="#3930E8"/>
+      <stop offset="100%" stop-color="#087BFF"/>
+    </linearGradient>
+    <linearGradient id="blueCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4C22F2"/>
+      <stop offset="55%" stop-color="#087BFF"/>
+      <stop offset="100%" stop-color="#11C5E8"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2444E8"/>
+      <stop offset="100%" stop-color="#2926C9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Upper broken frame -->
+  <path d="M116 255
+           C116 206 155 167 204 167
+           H386
+           C409 167 423 193 409 212
+           L360 267
+           C347 282 329 290 309 290
+           H207
+           C175 290 149 316 149 348
+           V471
+           C149 500 129 526 101 535
+           C70 545 42 520 42 488
+           V326
+           C42 300 51 279 69 261
+           L116 215 Z"
+        fill="url(#purpleBlue)"/>
+
+  <!-- Lower/right broken frame -->
+  <path d="M238 586
+           C225 586 213 578 207 566
+           C199 551 203 534 215 522
+           L274 463
+           L322 511
+           H555
+           L674 392
+           C691 375 720 387 720 411
+           V520
+           C720 558 689 586 651 586 Z"
+        fill="url(#blueCyan)"/>
+
+  <!-- Inner photo opening -->
+  <path d="M204 290 H309
+           C329 290 347 282 360 267
+           L386 238
+           V391
+           L320 457
+           L274 411
+           L207 478
+           C194 491 174 481 174 463
+           V348
+           C174 316 187 290 204 290 Z"
+        fill="none"/>
+
+  <!-- Sun -->
+  <circle cx="274" cy="349" r="32" fill="url(#purpleBlue)"/>
+
+  <!-- Mountains -->
+  <path d="M215 478
+           L274 418
+           L319 463
+           L375 398
+           L459 486
+           H215 Z"
+        fill="url(#mountain)"/>
+
+  <!-- Floating pixels -->
+  <rect x="430" y="92" width="58" height="58" rx="8" fill="#3520D8"/>
+  <rect x="386" y="177" width="58" height="58" rx="8" fill="url(#purpleBlue)"/>
+  <rect x="338" y="252" width="48" height="48" rx="7" fill="url(#purpleBlue)"/>
+  <rect x="445" y="247" width="34" height="34" rx="6" fill="#3520D8"/>
+  <rect x="399" y="307" width="47" height="47" rx="7" fill="url(#purpleBlue)"/>
+  <rect x="400" y="370" width="38" height="38" rx="6" fill="#087BFF"/>
+</svg>
