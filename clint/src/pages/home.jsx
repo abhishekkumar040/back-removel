@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/header'
 import Steps from '../components/steps'
 import Bgslider from '../components/bgslider'
-import Testimonial from '../components/testimonial'
+import Testimonial from '../components/Testimonial'
 import Upload from '../components/upload'
 
 
