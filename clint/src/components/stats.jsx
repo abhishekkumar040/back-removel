@@ -9,7 +9,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <div className='mx-4 lg:mx-44 -mt-6 mb-10 relative z-10'>
+    <div className='mx-4 lg:mx-44 mt-6 sm:mt-2 mb-10 relative z-10'>
       <div className='bg-white rounded-2xl drop-shadow-md border border-gray-100 grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-gray-100'>
         {stats.map((s, i) => (
           <div key={i} className='flex flex-col items-center justify-center py-6 px-2 text-center'>
